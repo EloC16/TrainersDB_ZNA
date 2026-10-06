@@ -1,0 +1,287 @@
+{
+  "_instructies": "Dit bestand voedt de Belastingsmonitor-pagina (index.html). Bewerk het rechtstreeks op GitHub (potlood-icoon rechtsboven bij dit bestand) en klik daarna Commit changes -- de pagina laadt dit bestand telkens opnieuw bij het openen. Per week-object: status=\"actual\" -> km en gb invullen (effectief gelogd); status=\"proposal\" -> kmRange en gbRange invullen als [laag, hoog] (voorstel); status=\"planned\" -> enkel fase/meso/macro/event, km/gb volgen later; status=\"none\" -> geen training die week (skills/zwembad dicht). fase is \"belasting\", \"rust\" of null. meso is \"I\", \"II\", \"III\" of null. event is de wedstrijd/naam van die week, of null. De volgorde van de week-objecten moet overeenkomen met de volgorde in \"weeks\" hierboven.",
+  "weeks": [
+    {
+      "d": "17-8",
+      "full": "17 aug"
+    },
+    {
+      "d": "24-8",
+      "full": "24 aug"
+    },
+    {
+      "d": "31-8",
+      "full": "31 aug"
+    },
+    {
+      "d": "7-9",
+      "full": "7 sep"
+    },
+    {
+      "d": "14-9",
+      "full": "14 sep"
+    },
+    {
+      "d": "21-9",
+      "full": "21 sep"
+    },
+    {
+      "d": "28-9",
+      "full": "28 sep"
+    },
+    {
+      "d": "5-10",
+      "full": "5 okt"
+    },
+    {
+      "d": "12-10",
+      "full": "12 okt"
+    },
+    {
+      "d": "19-10",
+      "full": "19 okt"
+    },
+    {
+      "d": "26-10",
+      "full": "26 okt"
+    },
+    {
+      "d": "2-11",
+      "full": "2 nov"
+    },
+    {
+      "d": "9-11",
+      "full": "9 nov"
+    }
+  ],
+  "jeugd": [
+    {
+      "macro": "skills",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Skills + snelheid"
+    },
+    {
+      "macro": "skills",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Skills + snelheid"
+    },
+    {
+      "macro": "gesloten",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Zwembad dicht"
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "I",
+      "status": "actual",
+      "km": 18.0,
+      "gb": 18.8,
+      "event": null
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "I",
+      "status": "actual",
+      "km": 19.5,
+      "gb": 18.9,
+      "event": "BK Estafette"
+    },
+    {
+      "macro": "voorb",
+      "fase": "rust",
+      "meso": "I",
+      "status": "actual",
+      "km": 17.0,
+      "gb": 18.3,
+      "event": "Herfstmeeting"
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "II",
+      "status": "actual",
+      "km": 19.2,
+      "gb": 19.4,
+      "event": "PK25"
+    },
+    {
+      "macro": "voorb",
+      "fase": "rust",
+      "meso": "II",
+      "status": "proposal",
+      "km": 13.9,
+      "gb": 14.1,
+      "kmRange": [
+        13.4,
+        14.4
+      ],
+      "gbRange": [
+        13.6,
+        14.6
+      ],
+      "event": null
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": "Mem Anth"
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": null
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "rust",
+      "meso": "III",
+      "status": "planned",
+      "event": "VK25 Jeugd"
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": "Herfstvakantie"
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "rust",
+      "meso": "III",
+      "status": "planned",
+      "event": "Speedocup"
+    }
+  ],
+  "regulier": [
+    {
+      "macro": "skills",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Skills + snelheid"
+    },
+    {
+      "macro": "skills",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Skills + snelheid"
+    },
+    {
+      "macro": "gesloten",
+      "fase": null,
+      "meso": null,
+      "status": "none",
+      "event": "Zwembad dicht"
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "I",
+      "status": "actual",
+      "km": 18.0,
+      "gb": 18.8,
+      "event": null,
+      "copied": true
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "I",
+      "status": "actual",
+      "km": 19.5,
+      "gb": 18.9,
+      "event": null,
+      "copied": true
+    },
+    {
+      "macro": "voorb",
+      "fase": "rust",
+      "meso": "I",
+      "status": "actual",
+      "km": 17.0,
+      "gb": 18.3,
+      "event": "Herfstmeeting",
+      "copied": true
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "II",
+      "status": "actual",
+      "km": 19.2,
+      "gb": 19.4,
+      "event": "PK25",
+      "copied": true
+    },
+    {
+      "macro": "voorb",
+      "fase": "rust",
+      "meso": "II",
+      "status": "proposal",
+      "km": 13.9,
+      "gb": 14.1,
+      "kmRange": [
+        13.4,
+        14.4
+      ],
+      "gbRange": [
+        13.6,
+        14.6
+      ],
+      "event": null,
+      "copied": true
+    },
+    {
+      "macro": "voorb",
+      "fase": "belasting",
+      "meso": "II",
+      "status": "planned",
+      "event": "Mem Anth"
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": null,
+      "uncertain": true
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": null,
+      "uncertain": true
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "planned",
+      "event": "Herfstvakantie",
+      "uncertain": true
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "rust",
+      "meso": "III",
+      "status": "planned",
+      "event": "Speedocup"
+    }
+  ]
+}
