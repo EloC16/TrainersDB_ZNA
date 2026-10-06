@@ -116,9 +116,9 @@
       "macro": "voorb",
       "fase": "rust",
       "meso": "II",
-      "status": "proposal",
-      "km": 13.9,
-      "gb": 14.1,
+      "status": "actual",
+      "km": 15.2,
+      "gb": 15.9,
       "kmRange": [
         13.4,
         14.4
@@ -231,9 +231,9 @@
       "macro": "voorb",
       "fase": "rust",
       "meso": "II",
-      "status": "proposal",
-      "km": 13.9,
-      "gb": 14.1,
+      "status": "actual",
+      "km": 15.2,
+      "gb": 15.9,
       "kmRange": [
         13.4,
         14.4
