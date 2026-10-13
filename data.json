@@ -1,5 +1,5 @@
 {
-  "_instructies": "Dit bestand voedt de Belastingsmonitor-pagina (index.html). Bewerk het rechtstreeks op GitHub (potlood-icoon rechtsboven bij dit bestand) en klik daarna Commit changes -- de pagina laadt dit bestand telkens opnieuw bij het openen. Per week-object: status=\"actual\" -> km en gb invullen (effectief gelogd); status=\"proposal\" -> kmRange en gbRange invullen als [laag, hoog] (voorstel); status=\"planned\" -> enkel fase/meso/macro/event, km/gb volgen later; status=\"none\" -> geen training die week (skills/zwembad dicht). fase is \"belasting\", \"rust\" of null. meso is \"I\", \"II\", \"III\" of null. event is de wedstrijd/naam van die week, of null. De volgorde van de week-objecten moet overeenkomen met de volgorde in \"weeks\" hierboven.",
+  "_instructies": "Dit bestand voedt de Belastingsmonitor-pagina (index.html). Bewerk het rechtstreeks op GitHub (potlood-icoon rechtsboven bij dit bestand) en klik daarna Commit changes -- de pagina laadt dit bestand telkens opnieuw bij het openen. Per week-object: status=\"actual\" -> km en gb invullen (effectief gelogd); status=\"proposal\" -> kmRange en gbRange invullen als [laag, hoog] (voorstel); status=\"planned\" -> enkel fase/meso/macro/event, km/gb volgen later; status=\"none\" -> geen training die week (skills/zwembad dicht). fase is \"belasting\", \"rust\" of null. meso is \"I\", \"II\", \"III\" of null. mesoDoel is het doel-label naast Meso (bv. \"ALG. BASISVOORB.\", \"SPEC. BASISVOORB.\", \"TOPVORMBRENGEND\", \"TOPVORMBEHOUDEND\"). event is de naam van een ECHTE WEDSTRIJD die week, of null (verschijnt prominent + als stip op de grafiek). piek: true op het event-veld van de piekwedstrijd van het seizoen (verschijnt in rood). opmerking is een niet-wedstrijd-notitie (bv. lactaattest, examens, vakantie) -- verschijnt wel bij de week maar niet als wedstrijd-stip op de grafiek. De volgorde van de week-objecten moet overeenkomen met de volgorde in \"weeks\" hierboven.",
   "weeks": [
     {
       "d": "17-8",
@@ -83,7 +83,8 @@
       "status": "actual",
       "km": 18.0,
       "gb": 18.8,
-      "event": null
+      "event": null,
+      "mesoDoel": "ALG. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -92,7 +93,8 @@
       "status": "actual",
       "km": 19.5,
       "gb": 18.9,
-      "event": "BK Estafette"
+      "event": "BK Estafette",
+      "mesoDoel": "ALG. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -101,7 +103,9 @@
       "status": "actual",
       "km": 17.0,
       "gb": 18.3,
-      "event": "Herfstmeeting"
+      "event": "Herfstmeeting",
+      "mesoDoel": "ALG. BASISVOORB.",
+      "opmerking": "Lactaattest?"
     },
     {
       "macro": "voorb",
@@ -110,7 +114,8 @@
       "status": "actual",
       "km": 19.2,
       "gb": 19.4,
-      "event": "PK25"
+      "event": "PK25",
+      "mesoDoel": "SPEC. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -118,51 +123,53 @@
       "meso": "II",
       "status": "actual",
       "km": 15.2,
-      "gb": 15.9,
-      "kmRange": [
-        13.4,
-        14.4
-      ],
-      "gbRange": [
-        13.6,
-        14.6
-      ],
-      "event": null
+      "gb": 16.0,
+      "event": null,
+      "mesoDoel": "SPEC. BASISVOORB."
+    },
+    {
+      "macro": "wedstrijd",
+      "fase": "belasting",
+      "meso": "III",
+      "status": "actual",
+      "event": "Mem Anth",
+      "mesoDoel": "TOPVORMBRENGEND",
+      "km": 19.4,
+      "gb": 22.05
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
       "status": "planned",
-      "event": "Mem Anth"
-    },
-    {
-      "macro": "wedstrijd",
-      "fase": "belasting",
-      "meso": "III",
-      "status": "planned",
-      "event": null
+      "event": null,
+      "mesoDoel": "TOPVORMBRENGEND"
     },
     {
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
       "status": "planned",
-      "event": "VK25 Jeugd"
+      "event": "VK25 Jeugd",
+      "mesoDoel": "TOPVORMBEHOUDEND",
+      "piek": true
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
       "status": "planned",
-      "event": "Herfstvakantie"
+      "event": null,
+      "mesoDoel": "TOPVORMBEHOUDEND",
+      "opmerking": "Herfstvakantie"
     },
     {
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
       "status": "planned",
-      "event": "Speedocup"
+      "event": "Speedocup",
+      "mesoDoel": "TOPVORMBEHOUDEND"
     }
   ],
   "regulier": [
@@ -195,7 +202,8 @@
       "km": 18.0,
       "gb": 18.8,
       "event": null,
-      "copied": true
+      "copied": true,
+      "mesoDoel": "ALG. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -205,7 +213,8 @@
       "km": 19.5,
       "gb": 18.9,
       "event": null,
-      "copied": true
+      "copied": true,
+      "mesoDoel": "ALG. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -215,7 +224,9 @@
       "km": 17.0,
       "gb": 18.3,
       "event": "Herfstmeeting",
-      "copied": true
+      "copied": true,
+      "mesoDoel": "ALG. BASISVOORB.",
+      "opmerking": "Lactaattest?"
     },
     {
       "macro": "voorb",
@@ -225,7 +236,8 @@
       "km": 19.2,
       "gb": 19.4,
       "event": "PK25",
-      "copied": true
+      "copied": true,
+      "mesoDoel": "SPEC. BASISVOORB."
     },
     {
       "macro": "voorb",
@@ -233,24 +245,20 @@
       "meso": "II",
       "status": "actual",
       "km": 15.2,
-      "gb": 15.9,
-      "kmRange": [
-        13.4,
-        14.4
-      ],
-      "gbRange": [
-        13.6,
-        14.6
-      ],
+      "gb": 16.0,
       "event": null,
-      "copied": true
+      "copied": true,
+      "mesoDoel": "SPEC. BASISVOORB."
     },
     {
       "macro": "voorb",
       "fase": "belasting",
       "meso": "II",
-      "status": "planned",
-      "event": "Mem Anth"
+      "status": "actual",
+      "event": "Mem Anth",
+      "mesoDoel": "SPEC. BASISVOORB.",
+      "km": 18.3,
+      "gb": 20.35
     },
     {
       "macro": "wedstrijd",
@@ -258,7 +266,8 @@
       "meso": "III",
       "status": "planned",
       "event": null,
-      "uncertain": true
+      "uncertain": true,
+      "mesoDoel": "TOPVORMBRENGEND"
     },
     {
       "macro": "wedstrijd",
@@ -266,22 +275,27 @@
       "meso": "III",
       "status": "planned",
       "event": null,
-      "uncertain": true
+      "uncertain": true,
+      "mesoDoel": "TOPVORMBRENGEND"
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
       "status": "planned",
-      "event": "Herfstvakantie",
-      "uncertain": true
+      "event": null,
+      "uncertain": true,
+      "mesoDoel": "TOPVORMBEHOUDEND",
+      "opmerking": "Herfstvakantie"
     },
     {
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
       "status": "planned",
-      "event": "Speedocup"
+      "event": "Speedocup",
+      "mesoDoel": "TOPVORMBEHOUDEND",
+      "piek": true
     }
   ]
 }
