@@ -141,27 +141,33 @@
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
       "event": null,
-      "mesoDoel": "TOPVORMBRENGEND"
+      "mesoDoel": "TOPVORMBRENGEND",
+      "km": 18.4,
+      "gb": 18.5
     },
     {
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
       "event": "VK25 Jeugd",
       "mesoDoel": "TOPVORMBEHOUDEND",
-      "piek": true
+      "piek": true,
+      "km": 10.4,
+      "gb": 12.125
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
+      "km": 21.1,
+      "gb": 17.15,
       "event": null,
-      "mesoDoel": "TOPVORMBEHOUDEND",
-      "opmerking": "Herfstvakantie"
+      "mesoDoel": "TOPVORMBRENGEND",
+      "opmerking": "Herfstvakantie; week net na VK25, opbouw richting Speedocup."
     },
     {
       "macro": "wedstrijd",
@@ -262,30 +268,34 @@
     },
     {
       "macro": "wedstrijd",
-      "fase": "belasting",
-      "meso": "III",
-      "status": "planned",
+      "fase": "rust",
+      "meso": "II",
+      "status": "actual",
       "event": null,
-      "uncertain": true,
-      "mesoDoel": "TOPVORMBRENGEND"
+      "mesoDoel": "SPEC. BASISVOORB.",
+      "km": 17.3,
+      "gb": 16.65
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
       "event": null,
-      "uncertain": true,
-      "mesoDoel": "TOPVORMBRENGEND"
+      "mesoDoel": "TOPVORMBRENGEND",
+      "km": 16.6,
+      "gb": 18.15,
+      "opmerking": "Donderdag (AER1) viel weg."
     },
     {
       "macro": "wedstrijd",
       "fase": "belasting",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
+      "km": 20.7,
+      "gb": 18.85,
       "event": null,
-      "uncertain": true,
-      "mesoDoel": "TOPVORMBEHOUDEND",
+      "mesoDoel": "TOPVORMBRENGEND",
       "opmerking": "Herfstvakantie"
     },
     {
