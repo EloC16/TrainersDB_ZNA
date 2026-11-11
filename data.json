@@ -173,9 +173,12 @@
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
       "event": "Speedocup",
-      "mesoDoel": "TOPVORMBEHOUDEND"
+      "mesoDoel": "TOPVORMBEHOUDEND",
+      "km": 12.5,
+      "gb": 13.7,
+      "opmerking": "Speedocup-week (B-meet); vrijdag nog open (?). Wedstrijd za/zo ingerekend als 2×1,4 km / 2×1,8 GB."
     }
   ],
   "regulier": [
@@ -302,10 +305,13 @@
       "macro": "wedstrijd",
       "fase": "rust",
       "meso": "III",
-      "status": "planned",
+      "status": "actual",
       "event": "Speedocup",
       "mesoDoel": "TOPVORMBEHOUDEND",
-      "piek": true
+      "piek": true,
+      "km": 11.6,
+      "gb": 12.7,
+      "opmerking": "Taper richting Speedocup (A-meet); woensdag en vrijdag geen training."
     }
   ]
 }
