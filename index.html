@@ -1,8 +1,4 @@
-<!doctype html>
-<html lang="nl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>TrainersDB_ZNA</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
@@ -32,6 +28,7 @@
   --belasting:#f4b65f;
   --rust:#cfcdc4;
   --event:#c99a00;
+  --event-piek:#c0392b;
   --ramp-1:#bfe3df;
   --ramp-2:#8fd0c8;
   --ramp-3:#4fb5ab;
@@ -69,6 +66,7 @@
     --belasting:#8a5a1f;
     --rust:#45443f;
     --event:#d4b400;
+    --event-piek:#ff6b5b;
     --ramp-1:#17312f;
     --ramp-2:#1b4a46;
     --ramp-3:#1f655f;
@@ -103,6 +101,7 @@
   --belasting:#8a5a1f;
   --rust:#45443f;
   --event:#d4b400;
+  --event-piek:#ff6b5b;
   --ramp-1:#17312f;
   --ramp-2:#1b4a46;
   --ramp-3:#1f655f;
@@ -327,7 +326,9 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
 .pill-macro{background:var(--accent-soft);color:var(--accent);}
 .pill-belasting{background:var(--belasting);color:#2a1a04;}
 .pill-rust{background:var(--rust);color:#272521;}
-.wk-event{font-size:12.5px;color:var(--ink-mute);margin:0;font-style:italic;}
+.wk-event{font-size:13.5px;color:var(--ink);margin:0;font-weight:600;}
+.wk-event-piek{color:var(--event-piek);font-weight:700;}
+.wk-opmerking{font-size:12px;color:var(--ink-mute);margin:0;font-style:italic;}
 .wk-value{font-size:15px;font-weight:600;margin:4px 0 0;font-variant-numeric:tabular-nums;}
 .wk-value.wk-muted{color:var(--ink-mute);font-weight:400;font-style:italic;}
 .wk-sub{font-size:12px;color:var(--ink-mute);margin:0;font-family:var(--font-mono);}
@@ -344,8 +345,7 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
   table{min-width:860px;}
 }
 </style>
-</head>
-<body>
+
 <div class="wrap">
   <div>
     <span class="eyebrow">A-groep 2026-2027</span>
@@ -546,7 +546,7 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       <div class="chart-shell" id="chart-regulier"></div>
     </div>
 
-    <p class="foot" id="grafiek-note">Fasering Meso III (vanaf 19-10) voor Regulier is afgeleid uit het schema en nog niet bevestigd. Stuur wekelijks de nieuwe km/GB door, dan werk ik het datablok in dit artifact bij.</p>
+    <p class="foot" id="grafiek-note">Fasering Meso III (vanaf 19-10) voor Regulier is afgeleid uit het schema en nog niet bevestigd. Pas de km/GB van een week aan in data.json (op GitHub), dan werkt de grafiek hier automatisch bij.</p>
   </section>
 
   <section class="panel" id="panel-week" role="tabpanel" aria-labelledby="tab-week">
@@ -562,16 +562,16 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       <div class="week-card"><h3>Regulier</h3><div id="wk-regulier"></div></div>
     </div>
 
-    <p class="foot">Berekening: een <strong>belastingsweek</strong> krijgt als doel +8–10% (Meso I) of +10–20% (erna) t.o.v. het rollend gemiddelde van de 4 voorafgaande (gelogde of berekende) weken; een <strong>rustweek</strong> krijgt 70–75% van de piekweek van de lopende golf. ACWR = deze week t.o.v. dat rollend gemiddelde, sweet spot 0,8–1,3 (een lage ACWR in een bewuste rustweek is normaal). Alles hier herrekent automatisch zodra je in het datablok (tab Grafieken-data) een nieuwe week als "actual" markeert.</p>
+    <p class="foot">Berekening: een <strong>belastingsweek</strong> krijgt als doel +8–10% (Meso I) of +10–20% (erna) t.o.v. het rollend gemiddelde van de 4 voorafgaande (gelogde of berekende) weken; een <strong>rustweek</strong> krijgt 70–75% van de piekweek van de lopende golf. ACWR = deze week t.o.v. dat rollend gemiddelde, sweet spot 0,8–1,3 (een lage ACWR in een bewuste rustweek is normaal). Alles hier (incl. de grafieken) herrekent automatisch zodra je in data.json een nieuwe week als "actual" markeert.</p>
   </section>
 </div>
 
 <script>
 (function(){
   // ===================================================================
-  // DATA — het wekelijkse datablok (weeks/jeugd/regulier) staat niet meer
-  // hier, maar in data.json naast dit bestand. Wijzig daar de status/km/gb
-  // van een week; deze pagina leest het bij elke page-load opnieuw in.
+  // DATA — het wekelijkse datablok (weeks/jeugd/regulier) staat in data.json
+  // naast dit bestand. Wijzig daar de status/km/gb van een week; deze pagina
+  // leest het bij elke page-load opnieuw in.
   // ===================================================================
   var weeks, jeugd, regulier, weekDates;
   var macroLabel = {skills:"Skills", voorb:"Voorbereidingsperiode", wedstrijd:"Wedstrijdperiode", gesloten:"Zwembad dicht"};
@@ -635,8 +635,9 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       if (data[i].meso){
         svgParts.push('<text x="'+x(i)+'" y="'+(H-padB+14)+'" font-size="9" fill="var(--ink-soft)" text-anchor="middle">'+data[i].meso+'</text>');
       }
-      if (data[i].event){
-        svgParts.push('<circle cx="'+x(i)+'" cy="'+(padT-2)+'" r="2.4" fill="var(--event)"></circle>');
+      if (data[i].event && (data[i].macro==="voorb" || data[i].macro==="wedstrijd")){
+        var isPiek = !!data[i].piek;
+        svgParts.push('<circle cx="'+x(i)+'" cy="'+(padT-2)+'" r="'+(isPiek?3.2:2.4)+'" fill="'+(isPiek?"var(--event-piek)":"var(--event)")+'"></circle>');
       }
     }
 
@@ -725,9 +726,10 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       var i = +this.getAttribute("data-i");
       var d = data[i];
       var lines = ["<strong>"+weeks[i].full+"</strong>"];
-      lines.push((d.meso?("Meso "+d.meso+" · "):"")+macroLabel[d.macro]);
+      lines.push((d.meso?("Meso "+d.meso+(d.mesoDoel?" — "+d.mesoDoel:"")+" · "):"")+macroLabel[d.macro]);
       if (d.fase) lines.push(faseLabel[d.fase] + (d.uncertain?" (te bevestigen)":""));
-      if (d.event) lines.push(d.event);
+      if (d.event) lines.push((d.piek?"\u{1F3C6} ":"")+d.event+(d.piek?" (piekwedstrijd)":""));
+      if (d.opmerking) lines.push("Opmerking: "+d.opmerking);
       if (d.status==="actual") lines.push("Km "+d.km.toFixed(1)+" · GB "+d.gb.toFixed(1)+(d.copied?" (voorlopig = Jeugd Kamp)":""));
       else if (d.status==="proposal") lines.push("Voorstel: km "+d.kmRange[0]+"–"+d.kmRange[1]+" · GB "+d.gbRange[0]+"–"+d.gbRange[1]);
       tip.innerHTML = lines.join("<br>");
@@ -749,11 +751,11 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
     I:  {name:"Accumulatie", aeroob:"~85%", lpLt:"~12%", speed:"~3%",
          note:"Techniek, aerobe capaciteit, duurvermogen, (droog)kracht. Maglischo: zo goed als 0% anaeroob in deze fase."},
     II: {name:"Transmutatie", aeroob:"~75%", lpLt:"~15%", speed:"~10%",
-         note:"Aerobe/kracht-basis omzetten naar wedstrijdspecifieke snelheid, tempo en race-pace-gevoel."},
+         note:"Aerobe/kracht-basis omzetten naar wedstrijdspecifieke tempo en race-pace-gevoel."},
     III:{name:"Realisatie", aeroob:"~80%", lpLt:"~8% (minder!)", speed:"~12% (meer)",
-         note:"ANC afbouwen, Speed/RP opbouwen, race-pace-specifiek werk toevoegen — richting VK25 Jeugd en Speedocup."}
+         note:"ANC afbouwen, ANP/SPRINT/RP opbouwen, race-pace-specifiek werk toevoegen — richting VK25 Jeugd en Speedocup. (Bij SPRINT telt enkel het effectieve 150–200m max-tempo-aandeel mee — de rest van die sessie is REG/AER1.)"}
   };
-  var rustAdvice = "Nog aerober dan het blok zelf (~90%+), geen ANC/Sprint.";
+  var rustAdvice = "Nog aerober dan het blok zelf (~90%+), geen ANC/ANP/SPRINT.";
 
   function avg(arr, key){ return arr.reduce(function(s,e){ return s+e[key]; },0) / arr.length; }
 
@@ -804,10 +806,11 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
     var s = series[viewIndex];
     var html = '<div class="wk-badges">';
     html += '<span class="pill pill-macro">'+macroLabel[d.macro]+'</span>';
-    if (d.meso) html += '<span class="pill">Meso '+d.meso+'</span>';
+    if (d.meso) html += '<span class="pill">Meso '+d.meso+(d.mesoDoel?" — "+d.mesoDoel:"")+'</span>';
     if (d.fase) html += '<span class="pill pill-'+d.fase+'">'+faseLabel[d.fase]+(d.uncertain?" (te bevestigen)":"")+'</span>';
     html += '</div>';
-    if (d.event) html += '<p class="wk-event">'+d.event+'</p>';
+    if (d.event) html += '<p class="wk-event'+(d.piek?' wk-event-piek':'')+'">'+(d.piek?'\u{1F3C6} ':'')+d.event+(d.piek?' — piekwedstrijd':'')+'</p>';
+    if (d.opmerking) html += '<p class="wk-opmerking">'+d.opmerking+'</p>';
 
     if (!s){
       html += '<p class="wk-value wk-muted">Geen training gepland deze week.</p>';
@@ -817,31 +820,39 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       html += '<p class="wk-value">Voorstel — '+fmtRange(s.kmRange)+' km · GB '+fmtRange(s.gbRange)+'</p>';
     } else if (s.source==="berekend-belasting"){
       html += '<p class="wk-value">Berekend doel (belastingsweek) — '+fmtRange(s.kmRange)+' km · GB '+fmtRange(s.gbRange)+'</p>';
-      html += '<p class="wk-sub">+'+(d.meso==="I"?"8–10":"10–20")+'% t.o.v. rollend 4-weeks gem. ('+s.chronic.km.toFixed(1)+' km · GB '+s.chronic.gb.toFixed(1)+')</p>';
     } else if (s.source==="berekend-rust"){
       html += '<p class="wk-value">Berekend doel (rustweek) — '+fmtRange(s.kmRange)+' km · GB '+fmtRange(s.gbRange)+'</p>';
       html += '<p class="wk-sub">70–75% van de piekweek van deze golf ('+s.peakRef.km.toFixed(1)+' km · GB '+s.peakRef.gb.toFixed(1)+')</p>';
     }
 
-    if (s){
+    if (s && d.fase === "belasting"){
       var basis = [];
       for (var k=viewIndex-1; k>=0 && basis.length<4; k--){ if (series[k]) basis.push(series[k]); }
       if (basis.length){
         var chKm = avg(basis,"km"), chGb = avg(basis,"gb");
-        var acwrKm = s.km/chKm, acwrGb = s.gb/chGb;
-        var band = function(v){ return (v>=0.8 && v<=1.3) ? "ok" : (v>1.3 ? "hoog" : "laag"); };
-        html += '<p class="wk-acwr">ACWR km <strong class="acwr-'+band(acwrKm)+'">'+acwrKm.toFixed(2)+'</strong> · ACWR GB <strong class="acwr-'+band(acwrGb)+'">'+acwrGb.toFixed(2)+'</strong> <span style="font-family:var(--font-body);color:var(--ink-mute)">(sweet spot 0,8–1,3)</span></p>';
+        var pctKm = (s.km/chKm - 1)*100, pctGb = (s.gb/chGb - 1)*100;
+        var band = function(p){ return (p>=-20 && p<=30) ? "ok" : (p>30 ? "hoog" : "laag"); };
+        var fmtPct = function(p){ return (p>=0?"+":"")+p.toFixed(1)+"%"; };
+        html += '<p class="wk-acwr">Rollend 4-weeks gem. <strong>'+chKm.toFixed(1)+' km · GB '+chGb.toFixed(1)+'</strong> — deze week <strong class="acwr-'+band(pctKm)+'">'+fmtPct(pctKm)+'</strong> km · <strong class="acwr-'+band(pctGb)+'">'+fmtPct(pctGb)+'</strong> GB <span style="font-family:var(--font-body);color:var(--ink-mute)">(gezonde marge circa -20% tot +30%)</span></p>';
+      }
+    } else if (s && d.fase === "rust"){
+      var prev = series[viewIndex-1];
+      if (prev){
+        var pctKm2 = (s.km/prev.km - 1)*100, pctGb2 = (s.gb/prev.gb - 1)*100;
+        var fmtPct2 = function(p){ return (p>=0?"+":"")+p.toFixed(1)+"%"; };
+        html += '<p class="wk-acwr">T.o.v. vorige week — <strong>'+fmtPct2(pctKm2)+'</strong> km · <strong>'+fmtPct2(pctGb2)+'</strong> GB</p>';
       }
     }
 
     if (d.meso){
       var b = blockInfo[d.meso];
       html += '<div class="wk-block"><p class="wk-block-title">'+b.name+' — richtmix</p>';
-      html += '<p class="wk-block-mix">Aeroob '+b.aeroob+' · LP/LT (ANC) '+b.lpLt+' · Speed/RP '+b.speed+'</p>';
+      html += '<p class="wk-block-mix">Aerobe sessies (REG/AER1/DUUR/TEC/AER2/AER3) '+b.aeroob+' · ANC '+b.lpLt+' · ANP/SPRINT/RP '+b.speed+'</p>';
       html += '<p class="wk-block-note">'+b.note+'</p>';
       if (d.fase==="rust") html += '<p class="wk-block-note"><em>'+rustAdvice+'</em></p>';
       html += '</div>';
     }
+
     document.getElementById(elId).innerHTML = html;
   }
 
@@ -870,16 +881,8 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
     });
   }
 
-  function init(data){
-    weeks = data.weeks;
-    jeugd = data.jeugd;
-    regulier = data.regulier;
-    weekDates = weeks.map(function(w){
-      var p = w.d.split("-"); return new Date(2026, parseInt(p[1],10)-1, parseInt(p[0],10));
-    });
-
+  function setupStaticChartUI(){
     var jeugdEl = document.getElementById("chart-jeugd");
-    buildChart(jeugdEl, jeugd, true);
     var leg1 = document.createElement("div");
     leg1.className = "chart-legend";
     leg1.innerHTML =
@@ -887,18 +890,29 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
       '<span class="sw"><span class="dot" style="background:var(--gb)"></span>Gewogen belasting (niveau 3, lijn)</span>'+
       '<span class="sw"><span class="bar" style="background:var(--belasting)"></span>Belasting</span>'+
       '<span class="sw"><span class="bar" style="background:var(--rust)"></span>Rust</span>'+
-      '<span class="sw"><span class="dot" style="background:var(--event);width:7px;height:7px"></span>Wedstrijd</span>';
+      '<span class="sw"><span class="dot" style="background:var(--event);width:7px;height:7px"></span>Wedstrijd</span>'+
+      '<span class="sw"><span class="dot" style="background:var(--event-piek);width:8px;height:8px"></span>Piekwedstrijd</span>';
     jeugdEl.parentNode.insertBefore(leg1, jeugdEl.nextSibling);
 
     var regEl = document.getElementById("chart-regulier");
-    buildChart(regEl, regulier, true);
     var leg2 = leg1.cloneNode(true);
     regEl.parentNode.insertBefore(leg2, regEl.nextSibling);
     var note = document.createElement("p");
     note.className = "chart-note";
     note.textContent = "Km/GB t.e.m. week van 5-10 zijn voorlopig gelijkgesteld aan Jeugd Kamp (deed tot nog toe hetzelfde) — zodra Regulier een eigen cijfer heeft, vervang ik dat per week.";
     regEl.parentNode.insertBefore(note, leg2.nextSibling);
+  }
 
+  function init(data){
+    weeks = data.weeks;
+    jeugd = data.jeugd;
+    regulier = data.regulier;
+    weekDates = weeks.map(function(w){
+      var p = w.d.split("-"); return new Date(2026, parseInt(p[1],10)-1, parseInt(p[0],10));
+    });
+    setupStaticChartUI();
+    buildChart(document.getElementById("chart-jeugd"), jeugd, true);
+    buildChart(document.getElementById("chart-regulier"), regulier, true);
     jeugdSeries = computeSeries(jeugd);
     regulierSeries = computeSeries(regulier);
     currentIndex = findWeekIndex();
@@ -906,7 +920,7 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
     renderWeek();
   }
 
-  fetch('data.json').then(function(r){
+  fetch('data.json', {cache:'no-store'}).then(function(r){
     if (!r.ok) throw new Error('HTTP '+r.status);
     return r.json();
   }).then(init).catch(function(err){
@@ -914,6 +928,4 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-spac
   });
 })();
 </script>
-
-</body>
-</html>
+</body></html>
